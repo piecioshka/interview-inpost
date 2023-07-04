@@ -1,5 +1,7 @@
 # interview-inpost
 
+InPost coding exercise: Generate QR Code for collection code or return code
+
 ## Assumptions
 
 - pure JavaScript
@@ -15,4 +17,7 @@ npm run start
 
 # run unit tests
 npm run test
+
+# run unit tests and generate coverage
+npm run coverage
 ```
