@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "name": "interview-inpost",
+  "description": "",
+  "version": "1.0.0",
+  "author": "Piotr Kowalski <piecioshka@gmail.com> (https://piecioshka.pl/)",
+  "license": "MIT",
+  "scripts": {
+    "test": "vitest"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "vitest": "^0.32.4"
+  }
+}
