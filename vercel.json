@@ -4,6 +4,10 @@
     {
       "src": "./index.mjs",
       "use": "@vercel/node"
+    },
+    {
+      "src": "client/",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
