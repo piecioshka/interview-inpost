@@ -11,10 +11,8 @@
 ```bash
 # setup application
 npm install
+npm run start
 
 # run unit tests
 npm run test
-
-# run unit tests and generate coverage
-npm run coverage
 ```

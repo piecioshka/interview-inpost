@@ -7,8 +7,8 @@
   "license": "MIT",
   "scripts": {
     "test": "vitest",
-    "server:start": "node server/main.mjs",
-    "server:dev": "nodemon server/main.mjs"
+    "start": "node server/main.mjs",
+    "dev": "nodemon server/main.mjs"
   },
   "devDependencies": {
     "express": "^4.18.2",
