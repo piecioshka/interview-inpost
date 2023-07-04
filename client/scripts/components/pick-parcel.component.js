@@ -1,6 +1,6 @@
 import { Component } from "./component.js";
 
-export class PickParcelComponent extends Component {
+export class PickParcel extends Component {
   template() {
     return `
       <section class="pick-parcel">

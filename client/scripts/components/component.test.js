@@ -1,5 +1,6 @@
 import "jsdom-global/register";
-import { it, expect, onTestFailed } from "vitest";
+import { it, expect } from "vitest";
+
 import { Component } from "./component";
 
 it("should be a class constructor", () => {

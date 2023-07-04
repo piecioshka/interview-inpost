@@ -1,10 +1,17 @@
 /**
+ * @typedef Options
+ * @property {boolean} [silent]
+ */
+
+/**
  * @param {string} selector
  * @param {Element|null} parent
- * @returns {HTMLElement}
+ * @param {Options} options
+ * @returns {HTMLElement|null}
  */
-export const $ = (selector, parent = document.body) => {
+export function $(selector, parent = document.body, options = {}) {
   if (!parent) {
+    if (options.silent) return null;
     throw new Error("parent is not defined");
   }
   /**
@@ -12,7 +19,8 @@ export const $ = (selector, parent = document.body) => {
    */
   const $element = parent.querySelector(selector);
   if (!$element) {
+    if (options.silent) return null;
     throw new Error("cannot find element with selector=" + selector);
   }
   return $element;
-};
+}

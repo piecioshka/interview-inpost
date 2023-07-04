@@ -4,9 +4,7 @@ body {
 
 #page {
   margin: 0 auto;
-}
-
-main {
-  display: flex;
-  justify-content: space-around;
+  width: 255px;
+  background-color: #d9d9d9;
+  padding: 15px;
 }

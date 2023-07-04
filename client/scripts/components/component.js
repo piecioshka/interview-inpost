@@ -1,6 +1,7 @@
 import { compile } from "../utils/compile.js";
+import { EventEmitter } from "../utils/event-emitter.js";
 
-export class Component {
+export class Component extends EventEmitter {
   /**
    * @type {Element|null}
    */
@@ -19,5 +20,9 @@ export class Component {
       throw new Error("template is not defined");
     }
     $target.appendChild(this.$el);
+  }
+
+  unmount() {
+    this.$el?.remove();
   }
 }

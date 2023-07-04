@@ -1,11 +1,11 @@
 import { Component } from "./component.js";
-import { PickParcelComponent } from "./pick-parcel.component.js";
 import { $ } from "../utils/dom.js";
 import {
   generateCollectionCode,
   generateReturnCode,
 } from "../services/code.service.js";
 import i18n from "../i18n/index.js";
+import { defaultTab, SUPPORTED_TABS } from "../configs/app.js";
 
 export class GenerateCode extends Component {
   template() {
@@ -28,7 +28,7 @@ export class GenerateCode extends Component {
               <form class="generate-collection-code-form">
                 <label>
                   <span class="code-input-label">Kod odbioru</span>
-                  <input class="code-input" type="text" name="code" value="12345" />
+                  <input class="code-input" type="text" name="code" placeholder="Example: 12345" />
                 </label>
 
                 <p class="error-message"></p>
@@ -39,7 +39,7 @@ export class GenerateCode extends Component {
               <form class="generate-return-code-form">
                 <label>
                   <span class="code-input-label">Kod zwrotu</span>
-                  <input class="code-input" type="text" name="code" value="123456" />
+                  <input class="code-input" type="text" name="code" placeholder="Example: 123456" />
                 </label>
 
                 <p class="error-message"></p>
@@ -49,7 +49,7 @@ export class GenerateCode extends Component {
             </div>
           </div>
 
-          <img src="images/qr-code.svg" alt="QR Code">
+          <img class="qr-code" src="images/qr-code-dummy.svg" alt="Dummy QR Code">
         </div>
       </section>
       `;
@@ -57,10 +57,8 @@ export class GenerateCode extends Component {
 
   render($target) {
     super.render($target);
-    const c = new PickParcelComponent();
-    c.render(this.$el);
 
-    this._selectTab("collection");
+    this._selectTab(defaultTab);
     this._setupTabs();
     this._setupSubmitForms();
   }
@@ -72,7 +70,14 @@ export class GenerateCode extends Component {
     this._setupForm(collectionForm, async ({ code }) => {
       try {
         const response = await generateCollectionCode({ code });
-        console.debug("piecioshka", response);
+        if (response.key) {
+          this._displayError(
+            collectionForm,
+            response.msg ?? i18n.NETWORK_ERROR
+          );
+          return;
+        }
+        this.emit("generated", { type: "collection", ...response });
       } catch (err) {
         this._displayError(collectionForm, i18n.NETWORK_ERROR);
       }
@@ -81,7 +86,11 @@ export class GenerateCode extends Component {
     this._setupForm(returnForm, async ({ code }) => {
       try {
         const response = await generateReturnCode({ code });
-        console.debug("piecioshka", response);
+        if (response.key) {
+          this._displayError(returnForm, response.msg ?? i18n.NETWORK_ERROR);
+          return;
+        }
+        this.emit("generated", { type: "collection", ...response });
       } catch (err) {
         this._displayError(returnForm, i18n.NETWORK_ERROR);
       }
@@ -94,28 +103,28 @@ export class GenerateCode extends Component {
       const data = new FormData(this);
       const fields = new Map(data);
       const code = fields.get("code");
-      console.debug("piecioshka", { code });
       callback({ code });
     });
   }
 
   _setupTabs() {
-    const tabs = this.$el?.querySelector(".tabs");
+    const tabs = $(".tabs", this.$el);
     tabs?.addEventListener("click", (evt) => {
       this._selectTab(evt.target.dataset.type);
     });
   }
 
   _selectTab(type) {
-    const tabs = this.$el?.querySelector(".tabs");
-    tabs?.querySelector(".active")?.classList.remove("active");
-    tabs?.querySelector(`[data-type=${type}]`)?.classList.add("active");
+    if (!SUPPORTED_TABS.includes(type)) {
+      throw new Error(`unsupported tab=${type}`);
+    }
+    const tabs = $(".tabs", this.$el);
+    $(".active", tabs, { silent: true })?.classList.remove("active");
+    $(`[data-type=${type}]`, tabs)?.classList.add("active");
 
-    const tabsContent = this.$el?.querySelector(".tabs-content");
-    tabsContent?.querySelector(".active")?.classList.remove("active");
-    tabsContent
-      ?.querySelector(`.generate-${type}-code-form`)
-      ?.classList.add("active");
+    const tabsContent = $(".tabs-content", this.$el);
+    $(".active", tabsContent, { silent: true })?.classList.remove("active");
+    $(`.generate-${type}-code-form`, tabsContent)?.classList.add("active");
   }
 
   _displayError(form, text) {

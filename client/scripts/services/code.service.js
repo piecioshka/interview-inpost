@@ -4,22 +4,24 @@ import {
   generateReturnCodeUrl,
 } from "../configs/urls.js";
 
-export function generateCollectionCode(payload) {
-  return makeRequest(generateCollectionCodeUrl, {
+/**
+ * @param {Record<string,unknown>} payload
+ * @returns {RequestInit}
+ */
+function buildJSONOptions(payload) {
+  return {
     method: "post",
     body: JSON.stringify(payload),
     headers: {
       "Content-type": "application/json",
     },
-  });
+  };
+}
+
+export function generateCollectionCode(payload) {
+  return makeRequest(generateCollectionCodeUrl, buildJSONOptions(payload));
 }
 
 export function generateReturnCode(payload) {
-  return makeRequest(generateReturnCodeUrl, {
-    method: "post",
-    body: JSON.stringify(payload),
-    headers: {
-      "Content-type": "application/json",
-    },
-  });
+  return makeRequest(generateReturnCodeUrl, buildJSONOptions(payload));
 }

@@ -25,3 +25,8 @@ button.link-button.active {
   justify-content: space-between;
   align-items: flex-start;
 }
+
+.qr-code {
+  width: 74px;
+  height: 76px;
+}
