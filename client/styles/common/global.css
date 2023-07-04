@@ -15,3 +15,13 @@ button.link-button {
   cursor: pointer;
   width: auto;
 }
+
+button.link-button.active {
+  text-decoration: underline;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}

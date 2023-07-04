@@ -8,31 +8,39 @@
   font-size: 14px;
 }
 
-.generate-code-details > ul {
+.generate-code-details > .tabs {
   margin: 10px 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-.generate-code-details > ul > li {
+.generate-code-details > .tabs > li {
   display: inline-block;
   line-height: 12px;
   white-space: nowrap;
 }
 
-.generate-code-details > ul > li::after {
+.generate-code-details > .tabs > li::after {
   content: "|";
   font-size: 12px;
   margin-left: 5px;
 }
 
-.generate-code-details > ul > li:last-of-type:after {
+.generate-code-details > .tabs > li:last-of-type:after {
   display: none;
 }
 
-.generate-code-details > ul > li > button:hover {
+.generate-code-details > .tabs > li > button:hover {
   text-decoration: underline;
+}
+
+.generate-code-details .tabs-content form {
+  display: none;
+}
+
+.generate-code-details .tabs-content form.active {
+  display: block;
 }
 
 .code-input-label {

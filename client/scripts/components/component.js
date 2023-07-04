@@ -1,6 +1,11 @@
 import { compile } from "../utils/compile.js";
 
 export class Component {
+  /**
+   * @type {Element|null}
+   */
+  $el = null;
+
   template() {
     return "";
   }
