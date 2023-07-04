@@ -1,0 +1,16 @@
+.pick-parcel {
+  height: 100px;
+  margin: 20px 0 0 0;
+}
+
+.pick-parcel h4 {
+  text-align: center;
+  font-size: 12px;
+}
+
+.pick-parcel .tabs {
+  display: flex;
+  justify-content: space-around;
+  font-size: 10px;
+  margin: 10px 0 0 0;
+}

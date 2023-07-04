@@ -1,0 +1,17 @@
+button {
+  background: #ebbe1e;
+  border: none;
+  width: 100%;
+  color: #fff;
+  font-size: 10px;
+}
+
+button.link-button {
+  color: #ebbe1e;
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: 12px;
+  cursor: pointer;
+  width: auto;
+}

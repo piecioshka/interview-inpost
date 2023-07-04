@@ -1,0 +1,53 @@
+.generate-code {
+  width: 255px;
+  background-color: #d9d9d9;
+  padding: 15px;
+}
+
+.generate-code-details > h2 {
+  font-size: 14px;
+}
+
+.generate-code-details > ul {
+  margin: 10px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.generate-code-details > ul > li {
+  display: inline-block;
+  line-height: 12px;
+  white-space: nowrap;
+}
+
+.generate-code-details > ul > li::after {
+  content: "|";
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.generate-code-details > ul > li:last-of-type:after {
+  display: none;
+}
+
+.generate-code-details > ul > li > button:hover {
+  text-decoration: underline;
+}
+
+.code-input-label {
+  font-size: 10px;
+}
+
+.code-input {
+  width: 100px;
+  display: block;
+  border: none;
+  font-size: 8px;
+  margin: 3px 0;
+}
+
+.error-message {
+  color: #ff0000;
+  font-size: 8px;
+}

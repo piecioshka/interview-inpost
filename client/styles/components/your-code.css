@@ -1,0 +1,24 @@
+.your-code {
+  width: 255px;
+  background-color: #d9d9d9;
+  padding: 15px;
+}
+
+.your-code > h2 {
+  font-size: 14px;
+  padding: 0 0 10px 0;
+}
+
+.your-code-details {
+  font-size: 10px;
+  width: 140px;
+}
+
+.your-code-details time {
+  display: block;
+}
+
+.multi-parcel-badge {
+  margin: 10px 0 0 0;
+  display: block;
+}

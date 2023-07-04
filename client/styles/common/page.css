@@ -1,0 +1,12 @@
+body {
+  font-family: Inter;
+}
+
+#page {
+  margin: 0 auto;
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+}
