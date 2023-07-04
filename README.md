@@ -2,6 +2,10 @@
 
 InPost coding exercise: Generate QR Code for collection code or return code
 
+## Preview 🎉
+
+<https://interview-inpost.vercel.app/>
+
 ## Assumptions
 
 - pure JavaScript
