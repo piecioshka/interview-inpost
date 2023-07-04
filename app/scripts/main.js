@@ -1,4 +1,4 @@
-import { GenerateCode } from "./components/generate-code.component";
+import { GenerateCode } from "./components/generate-code.component.js";
 
 function main() {
   const $main = document.querySelector("main");

@@ -13,6 +13,6 @@ export class Component {
     if (!this.$el) {
       throw new Error("template is not defined");
     }
-    $target?.appendChild(this.$el);
+    $target.appendChild(this.$el);
   }
 }
