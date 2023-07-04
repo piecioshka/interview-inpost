@@ -51,4 +51,6 @@ app.post("/api/return", (req, res) => {
   res.json(found).status(200);
 });
 
-app.listen(port);
+app.listen(port, () => {
+  console.log(`Server started on: http://localhost:${port}`);
+});
