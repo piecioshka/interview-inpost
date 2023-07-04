@@ -1,4 +1,5 @@
 import { Component } from "./component.js";
+import { PickParcelComponent } from "./pick-parcel.component.js";
 
 export class GenerateCode extends Component {
   template() {
@@ -23,5 +24,11 @@ export class GenerateCode extends Component {
         <button>Odbierz</button>
       </section>
       `;
+  }
+
+  render($target) {
+    super.render($target);
+    const c = new PickParcelComponent();
+    c.render(this.$el);
   }
 }

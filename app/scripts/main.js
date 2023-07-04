@@ -1,8 +1,10 @@
-import { PickParcelComponent } from "./components/pick-parcel.component.js";
+import { GenerateCode } from "./components/generate-code.component";
 
 function main() {
-  const c = new PickParcelComponent();
-  c.render();
+  const $main = document.querySelector("main");
+
+  const c = new GenerateCode();
+  c.render($main);
 }
 
 window.addEventListener("DOMContentLoaded", main);

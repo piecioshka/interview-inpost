@@ -1,0 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#page {
+  width: 255px;
+  margin: 0 auto;
+}

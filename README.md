@@ -4,6 +4,7 @@
 
 - pure JavaScript
 - unit tests with vitest
+- JavaScript: variables started with $ container reference to DOM elements
 
 # Development
 
