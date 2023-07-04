@@ -54,3 +54,13 @@ it("should have possibility to render component inside another component", () =>
 
   c1.render(container);
 });
+
+it("should be possibility to remove component", () => {
+  const container = document.createElement("div");
+  const c = new Component();
+  c.template = () => `<q></q>`;
+  c.render(container);
+  expect(container.children.length).toEqual(1);
+  c.unmount();
+  expect(container.children.length).toEqual(0);
+});

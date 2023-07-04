@@ -6,7 +6,8 @@
   "author": "Piotr Kowalski <piecioshka@gmail.com> (https://piecioshka.pl/)",
   "license": "MIT",
   "scripts": {
-    "test": "vitest",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "coverage": "vitest run --coverage",
     "start": "node server/main.mjs",
     "dev": "nodemon server/main.mjs"
