@@ -11,6 +11,7 @@ InPost coding exercise: Generate QR Code for collection code or return code
 - pure JavaScript
 - unit tests with vitest
 - JavaScript: variables started with $ container reference to DOM elements
+- JavaScript: members started with _ means that are private
 
 # Development
 
