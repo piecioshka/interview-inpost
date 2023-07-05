@@ -18,34 +18,34 @@ app.post("/api/collection", (req, res) => {
   const requestCode = Number(req.body.code);
 
   if (Number.isNaN(requestCode)) {
-    res.json(wrongCollectionCodeError).status(400);
+    res.status(400).json(wrongCollectionCodeError);
     return;
   }
 
   const found = shipments[requestCode];
 
   if (!found) {
-    res.json(wrongCollectionCodeError).status(400);
+    res.status(400).json(wrongCollectionCodeError);
     return;
   }
 
-  res.json(found).status(200);
+  res.status(200).json(found);
 });
 
 app.post("/api/return", (req, res) => {
   const requestCode = req.body.code;
 
   if (Number.isNaN(requestCode)) {
-    res.json(wrongReturnCodeError).status(400);
+    res.status(400).json(wrongReturnCodeError);
     return;
   }
 
   const found = returns[requestCode];
 
   if (!found) {
-    res.json(wrongReturnCodeError).status(400);
+    res.status(400).json(wrongReturnCodeError);
     return;
   }
 
-  res.json(found).status(200);
+  res.status(200).json(found);
 });
