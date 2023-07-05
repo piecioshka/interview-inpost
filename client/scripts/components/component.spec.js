@@ -3,11 +3,6 @@ import { it, expect } from "vitest";
 
 import { Component } from "./component";
 
-it("should be a class constructor", () => {
-  const c = new Component();
-  expect(1).toEqual(1);
-});
-
 it("should throw an error when template is not defined", () => {
   const container = document.createElement("div");
   const c = new Component();

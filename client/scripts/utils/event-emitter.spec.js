@@ -17,7 +17,7 @@ test("should can unregister an event", () => {
   ee.on("foo", () => {
     invoked = true;
   });
-  ee.off('foo');
+  ee.off("foo");
   ee.emit("foo");
   expect(invoked).toEqual(false);
 });
