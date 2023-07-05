@@ -110,7 +110,9 @@ export class GenerateCode extends Component {
   _setupTabs() {
     const tabs = $(".tabs", this.$el);
     tabs?.addEventListener("click", (evt) => {
-      this._selectTab(evt.target.dataset.type);
+      if (evt.target.nodeName.toLowerCase() === "button") {
+        this._selectTab(evt.target.dataset.type);
+      }
     });
   }
 
